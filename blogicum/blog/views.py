@@ -45,3 +45,13 @@ posts = [
     },
 ]
 
+
+def index(request):
+    template = 'blog/index.html'
+    return render(request, template)
+
+
+def post_detail(request, pk):
+    template = 'blog/detail.html'
+    context = {'posts': posts[pk]}
+    return render(request, template, context)
