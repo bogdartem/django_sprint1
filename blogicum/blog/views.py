@@ -54,8 +54,10 @@ def index(request):
 
 
 def post_detail(request, pk):
-#    if posts[pk].get(pk) == None:
-#        raise Http404("Empty post.")
+
+    #  if posts[pk].get(pk) == None:
+    #      raise Http404("Empty post.")
+
     try:
         posts[pk]
     except Http404:
