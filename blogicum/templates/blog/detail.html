@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block title %}
-  <!-- Формируется из локации и даты -->
-  <title>{{ post.location }} {{ post.date }}</title>
+  {{ post.location }} {{ post.date }}
 {% endblock %}
 
 {% block content %}

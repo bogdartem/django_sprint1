@@ -1,7 +1,5 @@
-from django.shortcuts import render
 from django.http import Http404
-
-# Create your views here.
+from django.shortcuts import render
 
 posts = [
     {
@@ -49,20 +47,15 @@ posts = [
 
 def index(request):
     template = 'blog/index.html'
-    context = {'posts1': reversed(posts)}
+    context = {'posts': posts}
     return render(request, template, context)
 
 
 def post_detail(request, pk):
-
-    #  if posts[pk].get(pk) == None:
-    #      raise Http404("Empty post.")
-
     try:
         posts[pk]
     except Http404:
         print("Empty post.")
-
     template = 'blog/detail.html'
     context = {'post': posts[pk]}
     return render(request, template, context)
