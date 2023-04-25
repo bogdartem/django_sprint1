@@ -52,10 +52,8 @@ def index(request):
 
 
 def post_detail(request, pk):
-    try:
-        posts[pk]
-    except Http404:
-        print("Empty post.")
+    if pk not in [post['id'] for post in posts]:
+        raise Http404("Empty post.")
     template = 'blog/detail.html'
     context = {'post': posts[pk]}
     return render(request, template, context)
