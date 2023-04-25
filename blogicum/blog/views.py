@@ -51,11 +51,11 @@ def index(request):
     return render(request, template, context)
 
 
-def post_detail(request, pk):
-    if pk not in [post['id'] for post in posts]:
+def post_detail(request, id):
+    if id not in [post['id'] for post in posts]:
         raise Http404("Empty post.")
     template = 'blog/detail.html'
-    context = {'post': posts[pk]}
+    context = {'post': posts[id]}
     return render(request, template, context)
 
 
